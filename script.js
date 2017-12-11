@@ -31,7 +31,7 @@ window.onload = function() {
   function drawEverything() {
     drawColorRect(0, 0, canvas.width, canvas.height, 'black');
     // left player paddle
-    drawColorRect(0, paddle1Y, 10, 100, 'white');
+    drawColorRect(0, paddle1Y - PADDLE_HEIGHT/2, 10, 100, 'white');
     //drawColorRect(ballX, 100, 10, 10, 'red');
     // ball
     drawColorCircle(ballX, ballY, 10, 'white');
