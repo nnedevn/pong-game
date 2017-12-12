@@ -20,22 +20,24 @@ window.onload = function() {
     drawEverything();
   }, 1000 / framesPerSecond);
 
-  canvas.addEventListener('mousemove', (evt)=>{
+  canvas.addEventListener('mousemove', (evt) => {
     var mousePos = calculateMousePosition(evt);
     paddle1Y = mousePos.y;
   });
 
 
-
-
   function drawEverything() {
     drawColorRect(0, 0, canvas.width, canvas.height, 'black');
     // left player paddle
-    drawColorRect(0, paddle1Y - PADDLE_HEIGHT/2, 10, 100, 'white');
+    drawColorRect(0, paddle1Y - PADDLE_HEIGHT / 2, 10, 100, 'white');
     //drawColorRect(ballX, 100, 10, 10, 'red');
     // ball
     drawColorCircle(ballX, ballY, 10, 'white');
+  }
 
+  function ballReset() {
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
   }
 
   function calculateMousePosition(evt) {
@@ -63,6 +65,7 @@ window.onload = function() {
 
     if (ballX < 0) {
       ballSpeedX = -ballSpeedX;
+      ballreset();
     }
 
     if (ballY > canvas.height) {
